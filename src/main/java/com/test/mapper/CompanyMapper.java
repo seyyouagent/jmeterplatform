@@ -17,6 +17,4 @@ public interface CompanyMapper {
     int updateByPrimaryKeySelective(Company company);
 
     List<Company> listAll();
-
-    Company getByUserId(Long userId);
 }

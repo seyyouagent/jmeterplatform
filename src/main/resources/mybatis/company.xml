@@ -19,11 +19,18 @@
     </resultMap>
 
     <sql id="Base_Column_List" >
-    id, alias_name, company_name, hierarchy, LEVEL, parent_id, STATUS, SERIAL, used_flag,
-    create_time, create_user_id, update_time, update_user_id, descn
-  </sql>
+        id, alias_name, company_name, hierarchy, LEVEL, parent_id, STATUS, SERIAL, used_flag,
+        create_time, create_user_id, update_time, update_user_id, descn
+     </sql>
 
     <select id="listAll" resultType="com.test.bean.entity.Company">
         SELECT <include refid="Base_Column_List" /> FROM company WHERE used_flag = 1;
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM company
+        WHERE id = #{id,jdbcType=BIGINT}
     </select>
 </mapper>

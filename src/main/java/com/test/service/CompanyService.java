@@ -14,7 +14,10 @@ public class CompanyService {
     CompanyMapper companyMapper;
 
     public List<Company> listAll(){
-
         return companyMapper.listAll();
+    }
+
+    public Company selectByPrimaryKey(Long id) {
+        return companyMapper.selectByPrimaryKey(id);
     }
 }
