@@ -1,4 +1,4 @@
-package com.test.entity;
+package com.test.bean.entity;
 
 import java.io.Serializable;
 import java.util.Date;

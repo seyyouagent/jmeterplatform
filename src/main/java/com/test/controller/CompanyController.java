@@ -1,6 +1,6 @@
 package com.test.controller;
 
-import com.test.entity.Company;
+import com.test.bean.entity.Company;
 import com.test.service.CompanyService;
 import com.test.util.AjaxResponseBody;
 import io.swagger.annotations.ApiOperation;

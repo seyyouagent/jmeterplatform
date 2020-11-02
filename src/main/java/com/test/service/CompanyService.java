@@ -1,6 +1,6 @@
 package com.test.service;
 
-import com.test.entity.Company;
+import com.test.bean.entity.Company;
 import com.test.mapper.CompanyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

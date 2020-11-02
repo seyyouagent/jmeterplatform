@@ -1,6 +1,6 @@
 package com.test.mapper;
 
-import com.test.entity.Company;
+import com.test.bean.entity.Company;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
