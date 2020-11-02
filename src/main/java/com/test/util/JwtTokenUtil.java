@@ -1,4 +1,4 @@
-package com.meicai.util;
+package com.test.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

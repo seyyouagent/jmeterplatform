@@ -1,17 +1,15 @@
-package com.meicai.bean.dto;
+package com.test.util;
 
-import java.io.Serializable;
-
-public class ResponseBody implements Serializable {
+public class AjaxResponseBody {
     private Integer status;
     private String msg;
     private Object result;
     private String jwtToken;
 
-    public ResponseBody() {
+    public AjaxResponseBody(){
     }
 
-    public ResponseBody(Integer status, String msg, Object result, String jwtToken) {
+    public AjaxResponseBody(Integer status, String msg, Object result, String jwtToken) {
         this.status = status;
         this.result = result;
         this.msg = msg;
@@ -48,5 +46,15 @@ public class ResponseBody implements Serializable {
 
     public void setJwtToken(String jwtToken) {
         this.jwtToken = jwtToken;
+    }
+
+    @Override
+    public String toString() {
+        return "AjaxResponseBody{" +
+                "status=" + status +
+                ", msg='" + msg + '\'' +
+                ", result=" + result +
+                ", jwtToken='" + jwtToken + '\'' +
+                '}';
     }
 }

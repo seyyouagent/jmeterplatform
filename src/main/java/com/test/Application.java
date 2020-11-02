@@ -1,4 +1,4 @@
-package com.meicai;
+package com.test;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -15,8 +15,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * Created by Administrator on 2019/1/25.
  */
 @SpringBootApplication
-//@EnableWebMvc
-//@MapperScan("com.meicai.mapper")
+@EnableWebMvc
+@MapperScan("com.test.mapper")
 public class Application {
 
     Logger log = LoggerFactory.getLogger(Application.class);

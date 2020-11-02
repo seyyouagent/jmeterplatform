@@ -1,4 +1,4 @@
-package com.meicai.util;
+package com.test.util;
 
 import java.security.MessageDigest;
 
