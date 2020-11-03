@@ -20,4 +20,18 @@ public class CompanyService {
     public Company selectByPrimaryKey(Long id) {
         return companyMapper.selectByPrimaryKey(id);
     }
+
+    public int insert(Company company){
+
+        return companyMapper.insert(company);
+    }
+
+    public int updateByPrimaryKeySelective(Company company) {
+        return companyMapper.updateByPrimaryKeySelective(company);
+    }
+
+    public int deleteByPrimaryKey(Long id) {
+
+        return companyMapper.deleteByPrimaryKey(id);
+    }
 }

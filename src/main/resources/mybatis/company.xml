@@ -33,4 +33,67 @@
         FROM company
         WHERE id = #{id,jdbcType=BIGINT}
     </select>
+
+    <insert id="insert" parameterType="com.test.bean.entity.Company" >
+        INSERT INTO company(alias_name, company_name,
+              hierarchy, LEVEL, parent_id,
+              STATUS, SERIAL, used_flag,
+              create_time, create_user_id, update_time,
+              update_user_id, descn)
+        VALUES (#{aliasName,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR},
+              #{hierarchy,jdbcType=VARCHAR}, #{level,jdbcType=TINYINT}, #{parentId,jdbcType=BIGINT},
+              #{status,jdbcType=TINYINT}, #{serial,jdbcType=SMALLINT}, #{usedFlag,jdbcType=TINYINT},
+              #{createTime,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP},
+              #{updateUserId,jdbcType=BIGINT}, #{descn,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.test.bean.entity.Company" >
+        UPDATE company
+        <set >
+            <if test="aliasName != null" >
+                alias_name = #{aliasName,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null" >
+                company_name = #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="hierarchy != null" >
+                hierarchy = #{hierarchy,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null" >
+                LEVEL = #{level,jdbcType=TINYINT},
+            </if>
+            <if test="parentId != null" >
+                parent_id = #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="status != null" >
+                STATUS = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="serial != null" >
+                SERIAL = #{serial,jdbcType=SMALLINT},
+            </if>
+            <if test="usedFlag != null" >
+                used_flag = #{usedFlag,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null" >
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUserId != null" >
+                create_user_id = #{createUserId,jdbcType=BIGINT},
+            </if>
+
+            <if test="updateUserId != null" >
+                update_user_id = #{updateUserId,jdbcType=BIGINT},
+            </if>
+            <if test="descn != null" >
+                descn = #{descn,jdbcType=VARCHAR},
+            </if>
+            update_time = now()
+        </set>
+        WHERE id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+        DELETE FROM company
+        WHERE id = #{id,jdbcType=BIGINT}
+    </delete>
 </mapper>
