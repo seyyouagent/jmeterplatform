@@ -13,8 +13,8 @@ public class CompanyService {
     @Autowired
     CompanyMapper companyMapper;
 
-    public List<Company> listAll(){
-        return companyMapper.listAll();
+    public List<Company> listAll(Company company){
+        return companyMapper.listAll(company);
     }
 
     public Company selectByPrimaryKey(Long id) {

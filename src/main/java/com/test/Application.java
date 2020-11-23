@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  */
 @SpringBootApplication
 @EnableWebMvc
-@MapperScan("com.test.mapper")
+@MapperScan("com.test")
 public class Application {
 
     Logger log = LoggerFactory.getLogger(Application.class);
@@ -25,24 +25,24 @@ public class Application {
         SpringApplication.run(Application.class,args);
     }
 
-//    private CorsConfiguration buildConfig() {
-//        CorsConfiguration corsConfiguration = new CorsConfiguration();
-//        corsConfiguration.addAllowedOrigin("*");
-//        corsConfiguration.addAllowedHeader("*");
-//        corsConfiguration.addAllowedMethod("*");
-//        return corsConfiguration;
-//    }
-//
-//    /**
-//     * 跨域过滤器
-//     *
-//     * @return
-//     */
-//    @Bean
-//    public CorsFilter corsFilter() {
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/*", buildConfig()); // 4
-//        log.info("corsFilter");
-//        return new CorsFilter(source);
-//    }
+    private CorsConfiguration buildConfig() {
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.addAllowedOrigin("*");
+        corsConfiguration.addAllowedHeader("*");
+        corsConfiguration.addAllowedMethod("*");
+        return corsConfiguration;
+    }
+
+    /**
+     * 跨域过滤器
+     *
+     * @return
+     */
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/*", buildConfig()); // 4
+        log.info("corsFilter");
+        return new CorsFilter(source);
+    }
 }

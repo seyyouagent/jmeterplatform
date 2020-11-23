@@ -16,5 +16,5 @@ public interface CompanyMapper {
 
     int updateByPrimaryKeySelective(Company company);
 
-    List<Company> listAll();
+    List<Company> listAll(Company company);
 }

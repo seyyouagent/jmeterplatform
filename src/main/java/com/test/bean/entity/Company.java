@@ -8,8 +8,10 @@ import java.util.Date;
  */
 public class Company implements Serializable {
 
+    // id
     private Long id;
 
+    // 公司名称
     private String aliasName;
 
     private String companyName;

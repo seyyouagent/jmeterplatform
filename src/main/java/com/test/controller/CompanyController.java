@@ -3,6 +3,7 @@ package com.test.controller;
 import com.test.bean.entity.Company;
 import com.test.service.CompanyService;
 import com.test.util.AjaxResponseBody;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequestMapping("/company")
+@Api(value = "CompanyController", description = "公司")
 public class CompanyController {
 
     @Autowired
@@ -24,12 +26,12 @@ public class CompanyController {
      * 查询全部
      * @return
      */
-    @PostMapping(value = "/listAll",consumes = "application/json;charset=UTF-8")
+    @PostMapping(value = "/listAll")
     @ResponseBody
     @ApiOperation(value = "查询公司", notes = "查询公司")
-    public AjaxResponseBody listAll() {
+    public AjaxResponseBody listAll(@RequestBody Company company) {
 
-        List<Company> list = companyService.listAll();
+        List<Company> list = companyService.listAll(company);
 
         return new AjaxResponseBody(HttpStatus.SC_OK,"",list,null);
     }
