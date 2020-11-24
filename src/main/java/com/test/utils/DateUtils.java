@@ -1,4 +1,4 @@
-package com.test.util;
+package com.test.utils;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 

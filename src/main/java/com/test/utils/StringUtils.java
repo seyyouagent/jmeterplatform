@@ -1,12 +1,11 @@
-package com.test.util;
+package com.test.utils;
 
-import  com.test.util.text.StrFormatter;
+import com.test.utils.text.StrFormatter;
 
 import java.util.*;
 
 /**
- * 字符串工具类
- * 
+ * 字符串工具类 *
  * @author liuhuan
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils

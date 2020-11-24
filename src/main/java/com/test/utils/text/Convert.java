@@ -1,6 +1,6 @@
-package com.test.util.text;
+package com.test.utils.text;
 
-import com.test.util.StringUtils;
+import com.test.utils.StringUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * 类型转换器
  * 
- * @author ruoyi
+ * @author liuhuan
  */
 public class Convert
 {

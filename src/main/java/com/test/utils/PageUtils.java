@@ -1,4 +1,4 @@
-package com.test.util;
+package com.test.utils;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,9 +6,7 @@ import java.util.List;
 /**
  * 分页工具类
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2016年11月4日 下午12:59:00
+ * @author liuhuan
  */
 public class PageUtils implements Serializable {
 	private static final long serialVersionUID = 1L;

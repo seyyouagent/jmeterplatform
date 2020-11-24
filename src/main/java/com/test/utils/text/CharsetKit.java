@@ -1,6 +1,6 @@
-package com.test.util.text;
+package com.test.utils.text;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.test.utils.StringUtils;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * 字符集工具类
  * 
- * @author ruoyi
+ * @author liuhuan
  */
 public class CharsetKit
 {

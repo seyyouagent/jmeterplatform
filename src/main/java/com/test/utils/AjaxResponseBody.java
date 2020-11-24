@@ -1,4 +1,4 @@
-package com.test.util;
+package com.test.utils;
 
 public class AjaxResponseBody {
     private Integer status;

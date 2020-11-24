@@ -1,11 +1,11 @@
-package com.test.util.text;
+package com.test.utils.text;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.test.utils.StringUtils;
 
 /**
  * 字符串格式化
  * 
- * @author ruoyi
+ * @author liuhuan
  */
 public class StrFormatter
 {

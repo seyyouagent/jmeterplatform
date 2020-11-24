@@ -2,7 +2,7 @@ package com.test.controller;
 
 import com.test.bean.entity.Company;
 import com.test.service.CompanyService;
-import com.test.util.AjaxResponseBody;
+import com.test.utils.AjaxResponseBody;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
