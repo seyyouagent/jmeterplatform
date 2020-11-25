@@ -9,7 +9,7 @@ import java.util.Date;
  * 公司
  */
 @Data
-public class Company implements Serializable {
+public class Company extends BaseEntity implements Serializable{
 
     // id
     private Long id;

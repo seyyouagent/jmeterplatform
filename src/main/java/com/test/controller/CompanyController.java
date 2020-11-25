@@ -1,6 +1,7 @@
 package com.test.controller;
 
 import com.test.bean.entity.Company;
+import com.test.bean.entity.PageEntity;
 import com.test.service.CompanyService;
 import com.test.utils.AjaxResponseBody;
 import io.swagger.annotations.Api;
@@ -20,7 +21,7 @@ import java.util.List;
 public class CompanyController {
 
     @Autowired
-    CompanyService companyService;
+    private CompanyService companyService;
 
     /**
      * 查询全部
@@ -33,7 +34,7 @@ public class CompanyController {
 
         List<Company> list = companyService.listAll(company);
 
-        return new AjaxResponseBody(HttpStatus.SC_OK,"",list,null);
+        return new AjaxResponseBody(HttpStatus.SC_OK,"",new PageEntity<>(list),null);
     }
 
     /**

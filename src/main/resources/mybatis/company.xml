@@ -26,7 +26,7 @@
     <select id="listAll" resultMap="BaseResultMap"  parameterType="com.test.bean.entity.Company">
         SELECT
         <include refid="Base_Column_List" />
-        FROM company WHERE 1 = 1;
+        FROM company
     </select>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
