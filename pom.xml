@@ -111,6 +111,12 @@
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.pagehelper</groupId>
+                    <artifactId>pagehelper-spring-boot-autoconfigure</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency> <!-- 引入log4j2依赖 -->
             <groupId>org.springframework.boot</groupId>
