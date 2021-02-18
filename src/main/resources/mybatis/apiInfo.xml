@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.ApiInfoMapper">
+  <resultMap id="BaseResultMap" type="com.test.bean.entity.ApiInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="api_name" jdbcType="VARCHAR" property="apiName" />
+    <result column="api_type" jdbcType="VARCHAR" property="apiType" />
+    <result column="api_request_method" jdbcType="VARCHAR" property="apiRequestMethod" />
+    <result column="api_url" jdbcType="VARCHAR" property="apiUrl" />
+    <result column="headers" jdbcType="VARCHAR" property="headers" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
+    <result column="files" jdbcType="VARCHAR" property="files" />
+    <result column="verif_response" jdbcType="VARCHAR" property="verifResponse" />
+    <result column="verif_response_status" jdbcType="VARCHAR" property="verifResponseStatus" />
+    <result column="relation_response_range" jdbcType="VARCHAR" property="relationResponseRange" />
+    <result column="relation_save_param" jdbcType="VARCHAR" property="relationSaveParam" />
+    <result column="relation_regular_expression" jdbcType="VARCHAR" property="relationRegularExpression" />
+    <result column="relation_template" jdbcType="VARCHAR" property="relationTemplate" />
+    <result column="relation_match_number" jdbcType="VARCHAR" property="relationMatchNumber" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, api_name, api_type, api_request_method, api_url, headers, params, files, verif_response, 
+    verif_response_status, relation_response_range, relation_save_param, relation_regular_expression, 
+    relation_template, relation_match_number, status, create_time, update_time, create_user, 
+    update_user, remark
+  </sql>
+
+  <select id="selectAllApiInfo" resultMap="BaseResultMap"  parameterType="com.test.bean.entity.ApiInfo">
+    select
+    <include refid="Base_Column_List" />
+    from api_info
+    <where>
+    1=1
+      <if test="apiName != null">
+        and  api_name like CONCAT('%',#{apiName,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="apiUrl != null">
+        and  api_url like CONCAT('%',#{apiUrl,jdbcType=VARCHAR},'%')
+      </if>
+    </where>
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from api_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from api_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.test.bean.entity.ApiInfo">
+    insert into api_info (id, api_name, api_type, 
+      api_request_method, api_url, headers, 
+      params, files, verif_response, 
+      verif_response_status, relation_response_range, 
+      relation_save_param, relation_regular_expression, 
+      relation_template, relation_match_number, 
+      status, create_time, update_time, 
+      create_user, update_user, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{apiName,jdbcType=VARCHAR}, #{apiType,jdbcType=VARCHAR}, 
+      #{apiRequestMethod,jdbcType=VARCHAR}, #{apiUrl,jdbcType=VARCHAR}, #{headers,jdbcType=VARCHAR}, 
+      #{params,jdbcType=VARCHAR}, #{files,jdbcType=VARCHAR}, #{verifResponse,jdbcType=VARCHAR}, 
+      #{verifResponseStatus,jdbcType=VARCHAR}, #{relationResponseRange,jdbcType=VARCHAR}, 
+      #{relationSaveParam,jdbcType=VARCHAR}, #{relationRegularExpression,jdbcType=VARCHAR}, 
+      #{relationTemplate,jdbcType=VARCHAR}, #{relationMatchNumber,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.bean.entity.ApiInfo">
+    insert into api_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="apiName != null">
+        api_name,
+      </if>
+      <if test="apiType != null">
+        api_type,
+      </if>
+      <if test="apiRequestMethod != null">
+        api_request_method,
+      </if>
+      <if test="apiUrl != null">
+        api_url,
+      </if>
+      <if test="headers != null">
+        headers,
+      </if>
+      <if test="params != null">
+        params,
+      </if>
+      <if test="files != null">
+        files,
+      </if>
+      <if test="verifResponse != null">
+        verif_response,
+      </if>
+      <if test="verifResponseStatus != null">
+        verif_response_status,
+      </if>
+      <if test="relationResponseRange != null">
+        relation_response_range,
+      </if>
+      <if test="relationSaveParam != null">
+        relation_save_param,
+      </if>
+      <if test="relationRegularExpression != null">
+        relation_regular_expression,
+      </if>
+      <if test="relationTemplate != null">
+        relation_template,
+      </if>
+      <if test="relationMatchNumber != null">
+        relation_match_number,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="apiName != null">
+        #{apiName,jdbcType=VARCHAR},
+      </if>
+      <if test="apiType != null">
+        #{apiType,jdbcType=VARCHAR},
+      </if>
+      <if test="apiRequestMethod != null">
+        #{apiRequestMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="apiUrl != null">
+        #{apiUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="headers != null">
+        #{headers,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="files != null">
+        #{files,jdbcType=VARCHAR},
+      </if>
+      <if test="verifResponse != null">
+        #{verifResponse,jdbcType=VARCHAR},
+      </if>
+      <if test="verifResponseStatus != null">
+        #{verifResponseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="relationResponseRange != null">
+        #{relationResponseRange,jdbcType=VARCHAR},
+      </if>
+      <if test="relationSaveParam != null">
+        #{relationSaveParam,jdbcType=VARCHAR},
+      </if>
+      <if test="relationRegularExpression != null">
+        #{relationRegularExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="relationTemplate != null">
+        #{relationTemplate,jdbcType=VARCHAR},
+      </if>
+      <if test="relationMatchNumber != null">
+        #{relationMatchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.bean.entity.ApiInfo">
+    update api_info
+    <set>
+      <if test="apiName != null">
+        api_name = #{apiName,jdbcType=VARCHAR},
+      </if>
+      <if test="apiType != null">
+        api_type = #{apiType,jdbcType=VARCHAR},
+      </if>
+      <if test="apiRequestMethod != null">
+        api_request_method = #{apiRequestMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="apiUrl != null">
+        api_url = #{apiUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="headers != null">
+        headers = #{headers,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        params = #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="files != null">
+        files = #{files,jdbcType=VARCHAR},
+      </if>
+      <if test="verifResponse != null">
+        verif_response = #{verifResponse,jdbcType=VARCHAR},
+      </if>
+      <if test="verifResponseStatus != null">
+        verif_response_status = #{verifResponseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="relationResponseRange != null">
+        relation_response_range = #{relationResponseRange,jdbcType=VARCHAR},
+      </if>
+      <if test="relationSaveParam != null">
+        relation_save_param = #{relationSaveParam,jdbcType=VARCHAR},
+      </if>
+      <if test="relationRegularExpression != null">
+        relation_regular_expression = #{relationRegularExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="relationTemplate != null">
+        relation_template = #{relationTemplate,jdbcType=VARCHAR},
+      </if>
+      <if test="relationMatchNumber != null">
+        relation_match_number = #{relationMatchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.bean.entity.ApiInfo">
+    update api_info
+    set api_name = #{apiName,jdbcType=VARCHAR},
+      api_type = #{apiType,jdbcType=VARCHAR},
+      api_request_method = #{apiRequestMethod,jdbcType=VARCHAR},
+      api_url = #{apiUrl,jdbcType=VARCHAR},
+      headers = #{headers,jdbcType=VARCHAR},
+      params = #{params,jdbcType=VARCHAR},
+      files = #{files,jdbcType=VARCHAR},
+      verif_response = #{verifResponse,jdbcType=VARCHAR},
+      verif_response_status = #{verifResponseStatus,jdbcType=VARCHAR},
+      relation_response_range = #{relationResponseRange,jdbcType=VARCHAR},
+      relation_save_param = #{relationSaveParam,jdbcType=VARCHAR},
+      relation_regular_expression = #{relationRegularExpression,jdbcType=VARCHAR},
+      relation_template = #{relationTemplate,jdbcType=VARCHAR},
+      relation_match_number = #{relationMatchNumber,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
