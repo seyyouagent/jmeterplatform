@@ -33,10 +33,9 @@
         <version>2.8.11</version>
         <commons.io.version>2.5</commons.io.version>
         <commons.fileupload.version>1.3.3</commons.fileupload.version>
-        <jmeter.version>${project.version}</jmeter.version>
-        <jmeter.websocket.version>1.2.2</jmeter.websocket.version>
-        <jmeter.plugins.version>1.4.0</jmeter.plugins.version>
-        <jmeter.dubbo.version>2.7.8</jmeter.dubbo.version>
+<!--        <jmeter.version>${project.version}</jmeter.version>-->
+<!--        <jmeter.websocket.version>1.2.2</jmeter.websocket.version>-->
+<!--        <jmeter.plugins.version>1.4.0</jmeter.plugins.version>-->
     </properties>
 
     <dependencies>
@@ -212,20 +211,6 @@
             <version>1.2</version>
         </dependency>
 
-        <!--io常用工具类 -->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${commons.io.version}</version>
-        </dependency>
-
-        <!--文件上传工具类 -->
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>${commons.fileupload.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -290,48 +275,65 @@
 
 
         <!--性能测试-->
-        <dependency>
-            <groupId>org.apache.jmeter</groupId>
-            <artifactId>ApacheJMeter_http</artifactId>
-            <version>${jmeter.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.jmeter</groupId>
-            <artifactId>ApacheJMeter_functions</artifactId>
-            <version>${jmeter.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.jmeter</groupId>-->
+<!--            <artifactId>ApacheJMeter_http</artifactId>-->
+<!--            <version>${jmeter.version}</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.apache.logging.log4j</groupId>-->
+<!--                    <artifactId>log4j-slf4j-impl</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.jmeter</groupId>-->
+<!--            <artifactId>ApacheJMeter_functions</artifactId>-->
+<!--            <version>${jmeter.version}</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.apache.logging.log4j</groupId>-->
+<!--                    <artifactId>log4j-slf4j-impl</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/kg.apc/jmeter-plugins-standard -->
+<!--        <dependency>-->
+<!--            <groupId>kg.apc</groupId>-->
+<!--            <artifactId>jmeter-plugins-extras-libs</artifactId>-->
+<!--            <version>${jmeter.plugins.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>kg.apc</groupId>-->
+<!--            <artifactId>jmeter-plugins-standard</artifactId>-->
+<!--            <version>${jmeter.plugins.version}</version>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>kg.apc</groupId>
-            <artifactId>jmeter-plugins-extras-libs</artifactId>
-            <version>${jmeter.plugins.version}</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
-            <groupId>kg.apc</groupId>
-            <artifactId>jmeter-plugins-standard</artifactId>
-            <version>${jmeter.plugins.version}</version>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.10</version>
         </dependency>
         <dependency>
-            <groupId>io.metersphere</groupId>
-            <artifactId>jmeter-plugins-dubbo</artifactId>
-            <version>${jmeter.dubbo.version}</version>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>spring-boot-druid</finalName>
+        <finalName>jmeterplatform</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -344,15 +346,15 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.icekredit.DaisyApplication</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
+<!--                <configuration>-->
+<!--                    <archive>-->
+<!--                        <manifest>-->
+<!--                            <addClasspath>true</addClasspath>-->
+<!--                            <classpathPrefix>lib/</classpathPrefix>-->
+<!--                            <mainClass>com.icekredit.DaisyApplication</mainClass>-->
+<!--                        </manifest>-->
+<!--                    </archive>-->
+<!--                </configuration>-->
             </plugin>
         </plugins>
         <resources>
@@ -387,7 +389,7 @@
                 <includes>
                     <include>**/*</include>
                 </includes>
-                <filtering>false</filtering> 
+                <filtering>false</filtering>
             </resource>
         </resources>
     </build>
