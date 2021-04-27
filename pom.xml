@@ -331,14 +331,15 @@
             <version>2.8.5</version>
         </dependency>
         <dependency>
-            <groupId>com.sprucetec.mcq</groupId>
-            <artifactId>mcq-client-spring</artifactId>
-            <version>0.3.18</version>
+            <groupId>com.alibaba.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>3.5.8</version>
         </dependency>
         <dependency>
-            <groupId>com.sprucetec.mcq</groupId>
-            <artifactId>mcq-client-core</artifactId>
-            <version>0.3.18</version>
+            <groupId>com.alibaba.rocketmq</groupId>
+            <artifactId>rocketmq-all</artifactId>
+            <version>3.5.8</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
 
